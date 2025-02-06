@@ -1,34 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play SWF Game with Ruffle</title>
-    <!-- Tải Ruffle -->
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-</head>
+    <title>Crocodile Lake Game Loader | NuMuKi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+    </style>
+<script src="/include/js/game-loader.min.js"></script><script src="https://numuki.com/include/js/ruffle/latest/ruffle.js"></script></head>
 <body>
-    <h1>Play SWF Game</h1>
-    <!-- Chỗ để Ruffle hiển thị game -->
-    <div id="swf-container"></div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Khởi tạo player Ruffle
-            const ruffle = window.RufflePlayer.newest();
-            const container = document.getElementById("swf-container");
-            const player = ruffle.createPlayer();
+<div id="container"><ruffle-player style="width: 100vw; height: 100vh;"></ruffle-player></div>
 
-            // Cài đặt kích thước player
-            player.style.width = "800px";
-            player.style.height = "600px";
+<script>
+    function loadScript(src, callback) {
+        let script = document.createElement('script');
+        script.src = src;
+        script.onload = () => callback(script);
+        document.head.append(script);
+    }
 
-            // Tải game SWF vào player
-            player.load("https://www.archive.play-games.com/games/ruffle/?swf=nick/dora/lacasadedora/main.swf&name=La%20Casa%20de%20Dora");
+    window.gameLoader = 'ruffle';
+        window.swfURL = 'https://files.numuki.com/games/dora-the-explorer/dora_croclake/game.swf';
+                        window.allowscriptaccess = true;
+    window.ruffleUrl = 'https://numuki.com/include/js/ruffle/latest/ruffle.js';
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+        "autoplay": "on",
+        "unmuteOverlay": "hidden",
+        "contextMenu": false,
+        "preloader": false,
+        "warnOnUnsupportedContent": false,
+        "base": 'https://files.numuki.com/games/dora-the-explorer/dora_croclake',
+        "allowNetworking": "none",
+        "scale": "showAll",
+        "forceScale": true,
+        "upgradeToHttps": window.location.protocol === "https:"
+    };
+    
+        loadScript('https://numuki.com/include/js/game-loader.min.js', function () {
+        loadEmulator();
+    });
+    
+</script>
 
-            // Đưa player vào trang
-            container.appendChild(player);
-        });
-    </script>
-</body>
-</html>
+
+    <embed id="embedContainer" type="application/x-shockwave-flash" base="https://files.numuki.com/games/dora-the-explorer/dora_croclake/" quality="best" allownetworking="internal" allowscriptaccess="never" width="100%" height="100%">
+
+
+
+</body></html>
