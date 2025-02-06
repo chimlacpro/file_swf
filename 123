@@ -1,0 +1,56 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Crocodile Lake Game Loader | NuMuKi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+    </style>
+<script src="/include/js/game-loader.min.js"></script><script src="https://numuki.com/include/js/ruffle/latest/ruffle.js"></script></head>
+<body>
+
+<div id="container"><ruffle-player style="width: 100vw; height: 100vh;"></ruffle-player></div>
+
+<script>
+    function loadScript(src, callback) {
+        let script = document.createElement('script');
+        script.src = src;
+        script.onload = () => callback(script);
+        document.head.append(script);
+    }
+
+    window.gameLoader = 'ruffle';
+        window.swfURL = 'https://files.numuki.com/games/dora-the-explorer/dora_croclake/game.swf';
+                        window.allowscriptaccess = true;
+    window.ruffleUrl = 'https://numuki.com/include/js/ruffle/latest/ruffle.js';
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+        "autoplay": "on",
+        "unmuteOverlay": "hidden",
+        "contextMenu": false,
+        "preloader": false,
+        "warnOnUnsupportedContent": false,
+        "base": 'https://files.numuki.com/games/dora-the-explorer/dora_croclake',
+        "allowNetworking": "none",
+        "scale": "showAll",
+        "forceScale": true,
+        "upgradeToHttps": window.location.protocol === "https:"
+    };
+    
+        loadScript('https://numuki.com/include/js/game-loader.min.js', function () {
+        loadEmulator();
+    });
+    
+</script>
+
+
+    <embed id="embedContainer" type="application/x-shockwave-flash" base="https://files.numuki.com/games/dora-the-explorer/dora_croclake/" quality="best" allownetworking="internal" allowscriptaccess="never" width="100%" height="100%">
+
+
+
+</body></html>
